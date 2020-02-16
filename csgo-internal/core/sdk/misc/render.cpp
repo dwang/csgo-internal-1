@@ -116,7 +116,7 @@ namespace cheat::sdk::misc {
 		fonts.push_back(CONV_ENUM_TYPE(std::int32_t, enums::font::font_watermark));
 		fonts.push_back(CONV_ENUM_TYPE(std::int32_t, enums::font::font_visuals));
 
-		fgui::render.create_font(fonts[CONV_ENUM_TYPE(std::int32_t, enums::font::font_watermark)], "Tahoma", 17, fgui::external::font_flags::SHADOW, false);
-		fgui::render.create_font(fonts[CONV_ENUM_TYPE(std::int32_t, enums::font::font_visuals)], "Tahoma", 17, fgui::external::font_flags::SHADOW, false);
+		fgui::render.create_font(fonts[CONV_ENUM_TYPE(std::int32_t, enums::font::font_watermark)], "Tahoma", 25, fgui::external::font_flags::SHADOW, false);
+		fgui::render.create_font(fonts[CONV_ENUM_TYPE(std::int32_t, enums::font::font_visuals)], "Tahoma", 20, fgui::external::font_flags::SHADOW, false);
 	}
 }
