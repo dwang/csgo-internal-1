@@ -11,5 +11,6 @@ namespace cheat::sdk::ifaces {
 		VFUNC(get_analog_value(const enums::analog_code analog_code), 18, std::int32_t(__thiscall*)(void*, enums::analog_code), analog_code);
 		VFUNC(get_analog_delta(const enums::analog_code analog_code), 19, std::int32_t(__thiscall*)(void*, enums::analog_code), analog_code);
 		VFUNC(button_code_to_string(const std::int32_t button_code), 40, const char* (__thiscall*)(void*, std::int32_t), button_code);
+		VFUNC(enable_input(const bool flag), 11, void(__thiscall*)(void*, bool), flag);
 	};
 }

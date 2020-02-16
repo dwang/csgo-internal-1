@@ -28,6 +28,18 @@ namespace cheat::core::hooks {
 		extern fn original;
 	}
 
+	namespace in_key_event {
+		using fn = int(__thiscall*)(std::uintptr_t, int, int, const char*);
+		extern int __fastcall hook(REGISTERS, int, int, const char*);
+		extern fn original;
+	}
+
+	namespace lock_cursor {
+		using fn = void(__thiscall*)(std::uintptr_t);
+		extern void __fastcall hook(REGISTERS);
+		extern fn original;
+	}
+
 	namespace override_view {
 		using fn = void(__thiscall*)(std::uintptr_t, sdk::ifaces::view_setup*);
 		extern void __fastcall hook(REGISTERS, sdk::ifaces::view_setup*);

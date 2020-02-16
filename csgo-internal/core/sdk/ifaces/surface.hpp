@@ -34,5 +34,6 @@ namespace cheat::sdk::ifaces {
 		VFUNC(draw_filled_rectangle_fade(const std::int32_t x, const std::int32_t y, const std::int32_t w, const std::int32_t h, const std::int32_t first_alpha, const std::int32_t second_alpha, const bool is_horizontal), 123, void(__thiscall*)(void*, std::int32_t, std::int32_t, std::int32_t, std::int32_t, std::uint32_t, std::uint32_t, bool), x, y, w, h, first_alpha, second_alpha, is_horizontal);
 		VFUNC(get_clip_rectangle(std::int32_t& x, std::int32_t& y, std::int32_t& w, std::int32_t& h), 146, void(__thiscall*)(void*, std::int32_t&, std::int32_t&, std::int32_t&, std::int32_t&), x, y, w, h);
 		VFUNC(set_clip_rectangle(const std::int32_t x, const std::int32_t y, const std::int32_t w, const std::int32_t h), 147, void(__thiscall*)(void*, std::int32_t, std::int32_t, std::int32_t, std::int32_t), x, y, w, h);
+		VFUNC(unlock_cursor(), 66, void(__thiscall*)(void*));
 	};
 }

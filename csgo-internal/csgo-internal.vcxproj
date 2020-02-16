@@ -90,6 +90,8 @@
     <ClCompile Include="core\hooks\hooked\create_move.cpp" />
     <ClCompile Include="core\hooks\hooked\emit_sound.cpp" />
     <ClCompile Include="core\hooks\hooked\frame_stage_notify.cpp" />
+    <ClCompile Include="core\hooks\hooked\in_key_event.cpp" />
+    <ClCompile Include="core\hooks\hooked\lock_cursor.cpp" />
     <ClCompile Include="core\hooks\hooked\override_view.cpp" />
     <ClCompile Include="core\hooks\hooked\paint_traverse.cpp" />
     <ClCompile Include="core\hooks\hooked\scene_end.cpp" />
