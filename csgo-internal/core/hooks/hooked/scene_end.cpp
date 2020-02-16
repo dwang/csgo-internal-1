@@ -1,7 +1,9 @@
 #include "../hooks.hpp"
 
-namespace cheat::core::hooks {
-	void __fastcall scene_end(REGISTERS) {
-		GET_ORIG_FUNC(render_view, 9, void(__thiscall*)(std::uintptr_t), ecx);
+namespace cheat::core::hooks::scene_end {
+	fn original = nullptr;
+
+	void __fastcall hook(REGISTERS) {
+		original(ecx);
 	}
 }

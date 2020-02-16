@@ -1,9 +1,9 @@
 #pragma once
 
 #include "capture_iface.hpp"
-#include "vmt_hook.hpp"
 #include "netvar_tree.hpp"
 #include "vfunc_from_index.hpp"
+#include "../../dependencies/minhook/MinHook.h"
 
 #define REGISTERS \
 	std::uintptr_t ecx, std::uintptr_t edx
@@ -20,20 +20,11 @@
 #define MEM_PTR(var_name, iface_struct, iface_ptr, base, offset) \
 	iface_struct* var_name = **reinterpret_cast<iface_struct***>((*reinterpret_cast<std::uintptr_t**>(iface_ptr))[base] + offset)
 
-#define SETUP_HOOK(hook_ptr, iface_ptr) \
-	hook_ptr = std::make_unique<cheat::sdk::misc::vmt_hook>(iface_ptr)
+#define SETUP_HOOK(target, hook, original) \
+	MH_CreateHook(target, &hook, reinterpret_cast<void**>(&original))
 
-#define HOOK_FUNC(var_name, index, func_name) \
-	var_name->hook_func(index, reinterpret_cast<void*>(func_name))
-
-#define UNHOOK_FUNC(var_name, index) \
-	var_name->unhook_func(index)
-
-#define GET_ORIG_FUNC(var_name, index, type, ...) \
-	var_name->get_orig_func<type>(index)(__VA_ARGS__)
-
-#define RETURN_ORIG_FUNC(var_name, index, type, ...) \
-	return var_name->get_orig_func<type>(index)(__VA_ARGS__)
+#define HOOK_TARGET(iface_ptr, index) \
+	sdk::misc::vfunc_from_index<void*>(iface_ptr, index)
 
 #define NETVAR(func_name, type, ...) \
 	type& func_name { \

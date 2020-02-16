@@ -2,46 +2,23 @@
 
 namespace cheat::core::hooks {
 	void hooks_create() {
-		SETUP_HOOK(client, ifaces::get_ifaces.base_client);
-
-		if (client)
-			HOOK_FUNC(client, 37, frame_stage_notify);
-
-		SETUP_HOOK(client_mode, mem::get_mem.client_mode);
-
-		if (client_mode) {
-			HOOK_FUNC(client_mode, 24, create_move);
-			HOOK_FUNC(client_mode, 18, override_view);
+		if (MH_Initialize() != MH_OK) {
+			throw std::runtime_error("failed to initialize MH_Initialize.");
 		}
 
-		SETUP_HOOK(render_view, ifaces::get_ifaces.render_view);
+		SETUP_HOOK(HOOK_TARGET(mem::get_mem.client_mode, 24), create_move::hook, create_move::original);
+		SETUP_HOOK(HOOK_TARGET(ifaces::get_ifaces.sound, 5), emit_sound::hook, emit_sound::original);
+		SETUP_HOOK(HOOK_TARGET(ifaces::get_ifaces.base_client, 37), frame_stage_notify::hook, frame_stage_notify::original);
+		SETUP_HOOK(HOOK_TARGET(mem::get_mem.client_mode, 18), override_view::hook, override_view::original);
+		SETUP_HOOK(HOOK_TARGET(ifaces::get_ifaces.panel, 41), paint_traverse::hook, paint_traverse::original);
+		SETUP_HOOK(HOOK_TARGET(ifaces::get_ifaces.render_view, 9), scene_end::hook, scene_end::original);
 
-		if (render_view)
-			HOOK_FUNC(render_view, 9, scene_end);
-
-		SETUP_HOOK(sound, ifaces::get_ifaces.sound);
-
-		if (sound)
-			HOOK_FUNC(sound, 5, emit_sound);
-
-		SETUP_HOOK(panel, ifaces::get_ifaces.panel);
-
-		if (panel)
-			HOOK_FUNC(panel, 41, paint_traverse);
+		if (MH_EnableHook(MH_ALL_HOOKS) != MH_OK) {
+			throw std::runtime_error("failed to enable hooks.");
+		}
 	}
 
 	void hooks_destroy() {
-		UNHOOK_FUNC(client, 37);
-		UNHOOK_FUNC(client_mode, 24);
-		UNHOOK_FUNC(client_mode, 18);
-		UNHOOK_FUNC(render_view, 9);
-		UNHOOK_FUNC(sound, 5);
-		UNHOOK_FUNC(panel, 41);
+		MH_Uninitialize();
 	}
-
-	std::unique_ptr<sdk::misc::vmt_hook> client;
-	std::unique_ptr<sdk::misc::vmt_hook> client_mode;
-	std::unique_ptr<sdk::misc::vmt_hook> render_view;
-	std::unique_ptr<sdk::misc::vmt_hook> sound;
-	std::unique_ptr<sdk::misc::vmt_hook> panel;
 }

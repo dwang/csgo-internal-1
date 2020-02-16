@@ -40,4 +40,3 @@
 #include "misc/render.hpp"
 #include "misc/vector.hpp"
 #include "misc/vfunc_from_index.hpp"
-#include "misc/vmt_hook.hpp"

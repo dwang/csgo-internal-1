@@ -1,9 +1,11 @@
 #include "../hooks.hpp"
 
-namespace cheat::core::hooks {
-	bool __fastcall create_move(REGISTERS, const float frame, sdk::ifaces::user_cmd* cmd) {
+namespace cheat::core::hooks::create_move {
+	fn original = nullptr;
+
+	bool __fastcall hook(REGISTERS, const float frame, sdk::ifaces::user_cmd* cmd) {
 		if (!cmd || !cmd->command_number)
-			GET_ORIG_FUNC(client_mode, 24, bool(__thiscall*)(std::uintptr_t, float, sdk::ifaces::user_cmd*), ecx, frame, cmd);
+			original(ecx, frame, cmd);
 
 		if (ifaces::get_ifaces.engine->is_connected() && ifaces::get_ifaces.engine->is_in_game() && cmd != nullptr) {
 			features::grenade_preview();

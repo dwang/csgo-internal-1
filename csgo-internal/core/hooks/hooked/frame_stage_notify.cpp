@@ -1,7 +1,9 @@
 #include "../hooks.hpp"
 
-namespace cheat::core::hooks {
-	void __fastcall frame_stage_notify(REGISTERS, const sdk::enums::client_frame_stage client_frame_stage) {
-		GET_ORIG_FUNC(client, 37, void(__thiscall*)(std::uintptr_t, sdk::enums::client_frame_stage), ecx, client_frame_stage);
+namespace cheat::core::hooks::frame_stage_notify {
+	fn original = nullptr;
+
+	void __fastcall hook(REGISTERS, const sdk::enums::client_frame_stage client_frame_stage) {
+		original(ecx, client_frame_stage);
 	}
 }

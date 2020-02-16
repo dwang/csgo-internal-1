@@ -1,7 +1,9 @@
 #include "../hooks.hpp"
 
-namespace cheat::core::hooks {
-	void __fastcall emit_sound(REGISTERS, const sdk::ifaces::sound_data sound_data) {
-		GET_ORIG_FUNC(sound, 5, void(__thiscall*)(std::uintptr_t, sdk::ifaces::sound_data), ecx, sound_data);
+namespace cheat::core::hooks::emit_sound {
+	fn original = nullptr;
+
+	void __fastcall hook(REGISTERS, const sdk::ifaces::sound_data sound_data) {
+		original(ecx, sound_data);
 	}
 }
