@@ -9,7 +9,7 @@ namespace cheat::sdk::misc {
 		const auto* client_class = core::ifaces::get_ifaces.base_client->get_all_classes();
 
 		while (client_class != nullptr) {
-			const auto class_info = std::make_shared< node >(0);
+			const auto class_info = std::make_shared<node>(0);
 
 			auto recv_table = client_class->table;
 
@@ -25,7 +25,7 @@ namespace cheat::sdk::misc {
 		for (auto i = 0; i < recv_table->props; i++) {
 			const ifaces::recv_prop* prop = &recv_table->prop[i];
 
-			const auto prop_info = std::make_shared< node >(prop->offset);
+			const auto prop_info = std::make_shared<node>(prop->offset);
 
 			if (prop->recv_type == CONV_ENUM_TYPE(std::int32_t, enums::send_prop_type::send_prop_type_data_table))
 				populate_nodes(prop->data_table, &prop_info->nodes);
