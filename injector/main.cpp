@@ -1,7 +1,6 @@
 #define WIN32_LEAN_AND_MEAN
 
 #include <filesystem>
-#include <string>
 #include <thread>
 #include <Windows.h>
 #include <TlHelp32.h>
