@@ -1,5 +1,7 @@
 #include "hooks.hpp"
 
+#include <thread>
+
 namespace cheat::core::hooks {
 	void hooks_create() {
 		if (MH_Initialize() != MH_OK) {
@@ -14,6 +16,8 @@ namespace cheat::core::hooks {
 		SETUP_HOOK(HOOK_TARGET(mem::get_mem.client_mode, 18), override_view::hook, override_view::original);
 		SETUP_HOOK(HOOK_TARGET(ifaces::get_ifaces.panel, 41), paint_traverse::hook, paint_traverse::original);
 		SETUP_HOOK(HOOK_TARGET(ifaces::get_ifaces.render_view, 9), scene_end::hook, scene_end::original);
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
 		if (MH_EnableHook(MH_ALL_HOOKS) != MH_OK) {
 			throw std::runtime_error("failed to enable hooks.");
