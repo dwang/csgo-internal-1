@@ -15,9 +15,9 @@ namespace cheat::core::main {
 		sdk::misc::render_setup();
 		sdk::misc::input_helper_setup();
 
-		hooks::hooks_create();
-
 		menu::menu_setup();
+
+		hooks::hooks_create();
 
 		while (!menu::checkbox["#unload_cheat_checkbox"]->get_bool())
 			std::this_thread::sleep_for(std::chrono::milliseconds(50));
