@@ -43,8 +43,7 @@ namespace cheat::core::menu {
 			ADD_FUNCTION(button["#disconnect_to_lobby_button"], features::disconnect_to_lobby);
 			ADD_GROUPBOX(container["#other_groupbox"], 440, 14, "other", 260, 398, menu_font, container["#window"], 1, false, false, false);
 			ADD_CONTROLLER(container["#other_groupbox"], tabs["#tab_panel"]);
-			ADD_CHECKBOX(checkbox["#watermark_checkbox"], 8, 14, "watermark", "vars.watermark", menu_font, container["#other_groupbox"], 1);
-			ADD_CHECKBOX(checkbox["#unload_cheat_checkbox"], 8, 32, "unload cheat", "vars.unload_cheat", menu_font, container["#other_groupbox"], 1);
+			ADD_CHECKBOX(checkbox["#unload_cheat_checkbox"], 8, 14, "unload cheat", "vars.unload_cheat", menu_font, container["#other_groupbox"], 1);
 		}
 
 		ADD_TAB(tabs["#tab_panel"], "Z"); {

@@ -2,9 +2,6 @@
 
 namespace cheat::core::features {
 	void watermark() {
-		if (!menu::checkbox["#watermark_checkbox"]->get_bool())
-			return;
-
 		sdk::misc::text(5, 5, fgui::color(255, 255, 255), sdk::misc::fonts[CONV_ENUM_TYPE(std::int32_t, sdk::enums::font::font_watermark)], "csgo-internal");
 	}
 
