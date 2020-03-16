@@ -2,7 +2,7 @@
 
 namespace cheat::core::menu {
 	void menu_setup() {
-		const fgui::element_font menu_font = { "Tahoma", 18, fgui::external::font_flags::SHADOW, false };
+		const fgui::element_font menu_font = { "Tahoma", 12, fgui::external::font_flags::SHADOW, false };
 
 		// https://www.dafont.com/heydings-icons.font
 		const fgui::element_font icon_font = { "Heydings Icons", 48, fgui::external::font_flags::ANTIALIAS, false };
