@@ -6,8 +6,7 @@ namespace cheat::core::features {
 		sdk::misc::vector min = entity->collideable()->mins() + origin;
 		sdk::misc::vector max = entity->collideable()->maxs() + origin;
 
-		sdk::misc::vector points[] =
-		{
+		sdk::misc::vector points[] = {
 			sdk::misc::vector(min.x, min.y, min.z),
 			sdk::misc::vector(min.x, max.y, min.z),
 			sdk::misc::vector(max.x, max.y, min.z),
@@ -35,8 +34,7 @@ namespace cheat::core::features {
 		right = flb.x;
 		bottom = flb.y;
 
-		for (int i = 1; i < 8; i++)
-		{
+		for (int i = 1; i < 8; i++) {
 			if (left > arr[i].x)
 				left = arr[i].x;
 			if (bottom < arr[i].y)
@@ -57,7 +55,7 @@ namespace cheat::core::features {
 
 	void watermark() {
 		if (vars::misc::watermark)
-			sdk::misc::text(5, 5, cheat::sdk::misc::color(255, 255, 255), sdk::misc::fonts[CONV_ENUM_TYPE(std::int32_t, sdk::enums::font::font_watermark)], "csgo-internal");
+			sdk::misc::text(5, 5, cheat::sdk::misc::color(255, 255, 255), sdk::misc::fonts[CONV_ENUM_TYPE(std::int32_t, sdk::enums::font::font_watermark)], "csgo-internal - " __DATE__);
 	}
 
 	void player() {
