@@ -22,6 +22,12 @@ namespace cheat::core::hooks {
 		extern fn original;
 	}
 
+	namespace end_scene {
+		using fn = long(__thiscall*)(std::uintptr_t, IDirect3DDevice9*);
+		extern long __fastcall hook(REGISTERS, IDirect3DDevice9* device);
+		extern fn original;
+	}
+
 	namespace frame_stage_notify {
 		using fn = void(__thiscall*)(std::uintptr_t, sdk::enums::client_frame_stage);
 		extern void __fastcall hook(REGISTERS, sdk::enums::client_frame_stage);
@@ -52,10 +58,21 @@ namespace cheat::core::hooks {
 		extern fn original;
 	}
 
+	namespace reset {
+		using fn = long(__thiscall*)(std::uintptr_t, IDirect3DDevice9*, D3DPRESENT_PARAMETERS*);
+		extern long __fastcall hook(REGISTERS, IDirect3DDevice9* device, D3DPRESENT_PARAMETERS* presentation_parameters);
+		extern fn original;
+	}
+
 	namespace scene_end {
 		using fn = void(__thiscall*)(std::uintptr_t);
 		extern void __fastcall hook(REGISTERS);
 		extern fn original;
+	}
+
+	namespace wndproc {
+		extern LRESULT __stdcall hook(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+		extern WNDPROC original;
 	}
 
 	extern void hooks_create();

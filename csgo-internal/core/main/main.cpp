@@ -12,14 +12,16 @@ namespace cheat::core::main {
 		mem::mem{ };
 
 		sdk::misc::get_netvar_tree = std::make_unique<sdk::misc::netvar_tree>();
-		sdk::misc::render_setup();
-		sdk::misc::input_helper_setup();
 
+		sdk::misc::font_setup();
 		menu::menu_setup();
 
 		hooks::hooks_create();
 
-		while (!menu::checkbox["#unload_cheat_checkbox"]->get_bool())
+		sdk::misc::input::add(VK_INSERT, []() { menu::visible = !menu::visible; });
+		sdk::misc::input::add(VK_END, []() { vars::misc::unload = true; });
+
+		while (!vars::misc::unload)
 			std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(400));

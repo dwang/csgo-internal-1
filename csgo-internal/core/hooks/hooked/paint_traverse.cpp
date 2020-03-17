@@ -15,7 +15,6 @@ namespace cheat::core::hooks::paint_traverse {
 			return;
 
 		features::watermark();
-		features::window();
 
 		if (ifaces::get_ifaces.engine->is_connected() && ifaces::get_ifaces.engine->is_in_game())
 			features::player();

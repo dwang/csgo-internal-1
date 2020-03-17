@@ -6,12 +6,10 @@
 #include "../../mem/mem.hpp"
 #include "../../menu/menu.hpp"
 #include "../../sdk/sdk.hpp"
-#include "../../../dependencies/fgui/FGUI.hh"
 #include "../../../dependencies/fmt/format.hpp"
 
 namespace cheat::core::features {
 	extern void watermark();
-	extern void window();
 	extern void player();
 	extern void grenade_preview();
 	extern void flash_alpha();

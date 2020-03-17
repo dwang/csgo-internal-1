@@ -34,9 +34,11 @@
 #include "ifaces/view_setup.hpp"
 
 #include "misc/capture_iface.hpp"
-#include "misc/input_helper.hpp"
+#include "misc/color.hpp"
+#include "misc/input.hpp"
 #include "misc/macros.hpp"
 #include "misc/netvar_tree.hpp"
+#include "misc/pattern_scan.hpp"
 #include "misc/render.hpp"
 #include "misc/vector.hpp"
 #include "misc/vfunc_from_index.hpp"

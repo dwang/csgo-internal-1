@@ -15,5 +15,7 @@ namespace cheat::core::ifaces {
 		CAPTURE_IFACE(render_view, sdk::ifaces::render_view, "engine.dll", "VEngineRenderView014");
 		CAPTURE_IFACE(sound, sdk::ifaces::sound, "engine.dll", "IEngineSoundClient003");
 		CAPTURE_IFACE(surface, sdk::ifaces::surface, "vguimatsurface.dll", "VGUI_Surface031");
+
+		IDirect3DDevice9* direct3d_device = **reinterpret_cast<IDirect3DDevice9***>(cheat::sdk::misc::pattern_scan(GetModuleHandleA("shaderapidx9.dll"), "A1 ? ? ? ? 50 8B 08 FF 51 0C") + 1);
 	} get_ifaces;
 }

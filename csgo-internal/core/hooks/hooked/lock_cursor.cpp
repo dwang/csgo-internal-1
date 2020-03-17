@@ -4,7 +4,7 @@ namespace cheat::core::hooks::lock_cursor {
 	fn original = nullptr;
 
 	void __fastcall hook(REGISTERS) {
-		if (menu::container["#window"]->get_state()) {
+		if (menu::visible) {
 			ifaces::get_ifaces.surface->unlock_cursor();
 			return;
 		}

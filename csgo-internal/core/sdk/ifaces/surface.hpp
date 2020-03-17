@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../misc/macros.hpp"
-#include "../../../dependencies/fgui/FGUI.hh"
 
 namespace cheat::sdk::ifaces {
 	// https://github.com/ValveSoftware/source-sdk-2013/blob/master/sp/src/public/vgui/ISurface.h
@@ -30,7 +29,6 @@ namespace cheat::sdk::ifaces {
 		VFUNC(play_sound(const char* file_name), 82, void(__thiscall*)(void*, const char*), file_name);
 		VFUNC(get_cursor_position(std::int32_t& x, std::int32_t& y), 100, void(__thiscall*)(void*, std::int32_t&, std::int32_t&), x, y);
 		VFUNC(draw_outlined_circle(const std::int32_t x, const std::int32_t y, const std::int32_t w, const std::int32_t h), 103, void(__thiscall*)(void*, std::int32_t, std::int32_t, std::int32_t, std::int32_t), x, y, w, h);
-		VFUNC(draw_textured_polygon(const std::int32_t vertex_count, fgui::vertex* vertex, const bool clip_vertices), 106, void(__thiscall*)(void*, std::int32_t, fgui::vertex*, bool), vertex_count, vertex, clip_vertices);
 		VFUNC(draw_filled_rectangle_fade(const std::int32_t x, const std::int32_t y, const std::int32_t w, const std::int32_t h, const std::int32_t first_alpha, const std::int32_t second_alpha, const bool is_horizontal), 123, void(__thiscall*)(void*, std::int32_t, std::int32_t, std::int32_t, std::int32_t, std::uint32_t, std::uint32_t, bool), x, y, w, h, first_alpha, second_alpha, is_horizontal);
 		VFUNC(get_clip_rectangle(std::int32_t& x, std::int32_t& y, std::int32_t& w, std::int32_t& h), 146, void(__thiscall*)(void*, std::int32_t&, std::int32_t&, std::int32_t&, std::int32_t&), x, y, w, h);
 		VFUNC(set_clip_rectangle(const std::int32_t x, const std::int32_t y, const std::int32_t w, const std::int32_t h), 147, void(__thiscall*)(void*, std::int32_t, std::int32_t, std::int32_t, std::int32_t), x, y, w, h);
