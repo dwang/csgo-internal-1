@@ -341,5 +341,11 @@
     <ClInclude Include="core\sdk\misc\input.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="core\sdk\ifaces\collideable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\sdk\misc\box.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

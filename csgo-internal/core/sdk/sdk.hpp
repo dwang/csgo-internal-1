@@ -33,6 +33,7 @@
 #include "ifaces/utl_vector.hpp"
 #include "ifaces/view_setup.hpp"
 
+#include "misc/box.hpp"
 #include "misc/capture_iface.hpp"
 #include "misc/color.hpp"
 #include "misc/input.hpp"

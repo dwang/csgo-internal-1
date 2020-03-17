@@ -30,12 +30,19 @@ namespace cheat::sdk::misc {
 		core::ifaces::get_ifaces.surface->draw_line(x, y, w, h);
 	}
 
-	void text(const std::int32_t x, const std::int32_t y, const color color, const unsigned long font, const std::string_view text) {
+	void text(const std::int32_t x, const std::int32_t y, const color color, const unsigned long font, const std::string_view text, const bool centered) {
 		const auto converted_text = std::wstring(text.begin(), text.end());
+
+		int width, height;
+		core::ifaces::get_ifaces.surface->get_text_size(font, converted_text.c_str(), width, height);
+		
+		if (centered)
+			core::ifaces::get_ifaces.surface->draw_set_text_pos(x - (width / 2), y);
+		else
+			core::ifaces::get_ifaces.surface->draw_set_text_pos(x, y);
 
 		core::ifaces::get_ifaces.surface->draw_set_text_color(color.r, color.g, color.b, color.a);
 		core::ifaces::get_ifaces.surface->draw_set_text_font(font);
-		core::ifaces::get_ifaces.surface->draw_set_text_pos(x, y);
 		core::ifaces::get_ifaces.surface->draw_print_text(converted_text.c_str(), std::wcslen(converted_text.c_str()));
 	}
 

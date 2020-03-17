@@ -140,6 +140,7 @@
     <ClInclude Include="core\sdk\ifaces\client_class.hpp" />
     <ClInclude Include="core\sdk\ifaces\client_entity.hpp" />
     <ClInclude Include="core\sdk\ifaces\client_mode.hpp" />
+    <ClInclude Include="core\sdk\ifaces\collideable.hpp" />
     <ClInclude Include="core\sdk\ifaces\convar.hpp" />
     <ClInclude Include="core\sdk\ifaces\cvar.hpp" />
     <ClInclude Include="core\sdk\ifaces\debug_overlay.hpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="core\sdk\ifaces\user_cmd.hpp" />
     <ClInclude Include="core\sdk\ifaces\utl_vector.hpp" />
     <ClInclude Include="core\sdk\ifaces\view_setup.hpp" />
+    <ClInclude Include="core\sdk\misc\box.hpp" />
     <ClInclude Include="core\sdk\misc\capture_iface.hpp" />
     <ClInclude Include="core\sdk\misc\color.hpp" />
     <ClInclude Include="core\sdk\misc\input.hpp" />

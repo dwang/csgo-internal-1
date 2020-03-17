@@ -24,7 +24,7 @@ namespace cheat::sdk::misc {
 	extern void rectangle(std::int32_t, std::int32_t, std::int32_t, std::int32_t, color);
 	extern void outlined_rectangle(std::int32_t, std::int32_t, std::int32_t, std::int32_t, color);
 	extern void line(std::int32_t, std::int32_t, std::int32_t, std::int32_t, color);
-	extern void text(std::int32_t, std::int32_t, color, unsigned long, std::string_view);
+	extern void text(std::int32_t, std::int32_t, color, unsigned long, std::string_view, bool = false);
 	extern void circle(std::int32_t, std::int32_t, std::int32_t, std::int32_t, color);
 	extern void gradient(std::int32_t, std::int32_t, std::int32_t, std::int32_t, std::int32_t, std::int32_t, color, bool);
 	extern void colored_gradient(std::int32_t, std::int32_t, std::int32_t, std::int32_t, color, color, bool);
