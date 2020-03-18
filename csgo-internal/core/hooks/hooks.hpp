@@ -16,6 +16,12 @@ namespace cheat::core::hooks {
 		extern fn original;
 	}
 
+	namespace draw_model_execute {
+		using fn = void(__thiscall*)(std::uintptr_t, sdk::ifaces::material_render_context*, void*, const sdk::ifaces::model_render_info&, sdk::misc::matrix3x4*);
+		extern void __fastcall hook(REGISTERS, sdk::ifaces::material_render_context*, void*, sdk::ifaces::model_render_info&, sdk::misc::matrix3x4*);
+		extern fn original;
+	}
+
 	namespace emit_sound {
 		using fn = void(__thiscall*)(std::uintptr_t, sdk::ifaces::sound_data);
 		extern void __fastcall hook(REGISTERS, sdk::ifaces::sound_data);
@@ -61,12 +67,6 @@ namespace cheat::core::hooks {
 	namespace reset {
 		using fn = long(__thiscall*)(std::uintptr_t, IDirect3DDevice9*, D3DPRESENT_PARAMETERS*);
 		extern long __fastcall hook(REGISTERS, IDirect3DDevice9* device, D3DPRESENT_PARAMETERS* presentation_parameters);
-		extern fn original;
-	}
-
-	namespace scene_end {
-		using fn = void(__thiscall*)(std::uintptr_t);
-		extern void __fastcall hook(REGISTERS);
 		extern fn original;
 	}
 

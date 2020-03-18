@@ -45,9 +45,6 @@
     <ClCompile Include="core\hooks\hooked\paint_traverse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="core\hooks\hooked\scene_end.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="core\features\core\misc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -103,6 +100,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="core\hooks\hooked\wndproc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\hooks\hooked\draw_model_execute.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\features\core\chams.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -189,9 +192,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="core\sdk\ifaces\player_info.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="core\sdk\ifaces\render_view.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="core\sdk\ifaces\sound.hpp">
@@ -345,6 +345,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="core\sdk\misc\box.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\sdk\ifaces\material_render_context.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\sdk\ifaces\model_render_info.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\sdk\misc\matrix.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\sdk\ifaces\model_render.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\features\core\chams.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

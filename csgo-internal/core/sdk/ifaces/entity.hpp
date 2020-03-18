@@ -28,16 +28,6 @@ namespace cheat::sdk::ifaces {
 		NETVAR(get_abs_origin(), misc::vector, "DT_BaseEntity", "m_angAbsOrigin");
 		NETVAR(get_vec_view(), misc::vector, "DT_BasePlayer", "m_vecViewOffset[0]");
 
-		collideable_t* collideable() {
-			return misc::vfunc_from_index<collideable_t*(__thiscall*)(void*)>(this, 3)(this);
-		}
-
-		void* animating() {
-			return reinterpret_cast<void*>(std::uintptr_t(this) + 0x4);
-		}
-
-		int draw_model(int flags, std::uint8_t alpha) {
-			return misc::vfunc_from_index<int(__thiscall*)(void*, int, std::uint8_t)>(animating(), 9)(animating(), flags, alpha);
-		}
+		VFUNC(collideable(), 3, collideable_t* (__thiscall*)(void*));
 	};
 }

@@ -88,9 +88,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\entry.cpp" />
+    <ClCompile Include="core\features\core\chams.cpp" />
     <ClCompile Include="core\features\core\misc.cpp" />
     <ClCompile Include="core\features\core\visuals.cpp" />
     <ClCompile Include="core\hooks\hooked\create_move.cpp" />
+    <ClCompile Include="core\hooks\hooked\draw_model_execute.cpp" />
     <ClCompile Include="core\hooks\hooked\emit_sound.cpp" />
     <ClCompile Include="core\hooks\hooked\end_scene.cpp" />
     <ClCompile Include="core\hooks\hooked\frame_stage_notify.cpp" />
@@ -99,7 +101,6 @@
     <ClCompile Include="core\hooks\hooked\override_view.cpp" />
     <ClCompile Include="core\hooks\hooked\paint_traverse.cpp" />
     <ClCompile Include="core\hooks\hooked\reset.cpp" />
-    <ClCompile Include="core\hooks\hooked\scene_end.cpp" />
     <ClCompile Include="core\hooks\hooked\wndproc.cpp" />
     <ClCompile Include="core\hooks\hooks.cpp" />
     <ClCompile Include="core\main\main.cpp" />
@@ -119,6 +120,7 @@
     <ClCompile Include="dependencies\minhook\trampoline.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="core\features\core\chams.hpp" />
     <ClInclude Include="core\features\core\misc.hpp" />
     <ClInclude Include="core\features\core\visuals.hpp" />
     <ClInclude Include="core\features\features.hpp" />
@@ -151,9 +153,11 @@
     <ClInclude Include="core\sdk\ifaces\input_system.hpp" />
     <ClInclude Include="core\sdk\ifaces\material.hpp" />
     <ClInclude Include="core\sdk\ifaces\material_system.hpp" />
+    <ClInclude Include="core\sdk\ifaces\material_render_context.hpp" />
+    <ClInclude Include="core\sdk\ifaces\model_render.hpp" />
+    <ClInclude Include="core\sdk\ifaces\model_render_info.hpp" />
     <ClInclude Include="core\sdk\ifaces\panel.hpp" />
     <ClInclude Include="core\sdk\ifaces\player_info.hpp" />
-    <ClInclude Include="core\sdk\ifaces\render_view.hpp" />
     <ClInclude Include="core\sdk\ifaces\sound.hpp" />
     <ClInclude Include="core\sdk\ifaces\sound_data.hpp" />
     <ClInclude Include="core\sdk\ifaces\surface.hpp" />
@@ -165,6 +169,7 @@
     <ClInclude Include="core\sdk\misc\color.hpp" />
     <ClInclude Include="core\sdk\misc\input.hpp" />
     <ClInclude Include="core\sdk\misc\macros.hpp" />
+    <ClInclude Include="core\sdk\misc\matrix.hpp" />
     <ClInclude Include="core\sdk\misc\netvar_tree.hpp" />
     <ClInclude Include="core\sdk\misc\pattern_scan.hpp" />
     <ClInclude Include="core\sdk\misc\render.hpp" />
