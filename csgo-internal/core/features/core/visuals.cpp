@@ -1,58 +1,58 @@
 #include "misc.hpp"
 
-namespace cheat::core::features {
-	bool get_bounding_box(sdk::ifaces::entity* entity, sdk::misc::box& in) {
-		sdk::misc::vector origin = entity->get_vec_origin();
-		sdk::misc::vector min = entity->collideable()->mins() + origin;
-		sdk::misc::vector max = entity->collideable()->maxs() + origin;
+bool get_bounding_box(cheat::sdk::ifaces::entity* entity, cheat::sdk::misc::box& in) {
+	cheat::sdk::misc::vector origin = entity->get_vec_origin();
+	cheat::sdk::misc::vector min = entity->collideable()->mins() + origin;
+	cheat::sdk::misc::vector max = entity->collideable()->maxs() + origin;
 
-		sdk::misc::vector points[] = {
-			sdk::misc::vector(min.x, min.y, min.z),
-			sdk::misc::vector(min.x, max.y, min.z),
-			sdk::misc::vector(max.x, max.y, min.z),
-			sdk::misc::vector(max.x, min.y, min.z),
-			sdk::misc::vector(max.x, max.y, max.z),
-			sdk::misc::vector(min.x, min.y, max.z),
-			sdk::misc::vector(min.x, max.y, max.z),
-			sdk::misc::vector(max.x, min.y, max.z)
-		};
+	cheat::sdk::misc::vector points[] = {
+		cheat::sdk::misc::vector(min.x, min.y, min.z),
+		cheat::sdk::misc::vector(min.x, max.y, min.z),
+		cheat::sdk::misc::vector(max.x, max.y, min.z),
+		cheat::sdk::misc::vector(max.x, min.y, min.z),
+		cheat::sdk::misc::vector(max.x, max.y, max.z),
+		cheat::sdk::misc::vector(min.x, min.y, max.z),
+		cheat::sdk::misc::vector(min.x, max.y, max.z),
+		cheat::sdk::misc::vector(max.x, min.y, max.z)
+	};
 
-		sdk::misc::vector flb, brt, blb, frt, frb, brb, blt, flt;
+	cheat::sdk::misc::vector flb, brt, blb, frt, frb, brb, blt, flt;
 
-		if (ifaces::get_ifaces.debug_overlay->screen_position(points[3], flb) == 1 || ifaces::get_ifaces.debug_overlay->screen_position(points[5], brt) == 1 ||
-			ifaces::get_ifaces.debug_overlay->screen_position(points[0], blb) == 1 || ifaces::get_ifaces.debug_overlay->screen_position(points[4], frt) == 1 ||
-			ifaces::get_ifaces.debug_overlay->screen_position(points[2], frb) == 1 || ifaces::get_ifaces.debug_overlay->screen_position(points[1], brb) == 1 ||
-			ifaces::get_ifaces.debug_overlay->screen_position(points[6], blt) == 1 || ifaces::get_ifaces.debug_overlay->screen_position(points[7], flt) == 1)
-			return false;
+	if (cheat::core::ifaces::get_ifaces.debug_overlay->screen_position(points[3], flb) == 1 || cheat::core::ifaces::get_ifaces.debug_overlay->screen_position(points[5], brt) == 1 ||
+		cheat::core::ifaces::get_ifaces.debug_overlay->screen_position(points[0], blb) == 1 || cheat::core::ifaces::get_ifaces.debug_overlay->screen_position(points[4], frt) == 1 ||
+		cheat::core::ifaces::get_ifaces.debug_overlay->screen_position(points[2], frb) == 1 || cheat::core::ifaces::get_ifaces.debug_overlay->screen_position(points[1], brb) == 1 ||
+		cheat::core::ifaces::get_ifaces.debug_overlay->screen_position(points[6], blt) == 1 || cheat::core::ifaces::get_ifaces.debug_overlay->screen_position(points[7], flt) == 1)
+		return false;
 
-		sdk::misc::vector arr[] = { flb, brt, blb, frt, frb, brb, blt, flt };
-		
-		float left, top, right, bottom;
+	cheat::sdk::misc::vector arr[] = { flb, brt, blb, frt, frb, brb, blt, flt };
 
-		left = flb.x;
-		top = flb.y;
-		right = flb.x;
-		bottom = flb.y;
+	float left, top, right, bottom;
 
-		for (int i = 1; i < 8; i++) {
-			if (left > arr[i].x)
-				left = arr[i].x;
-			if (bottom < arr[i].y)
-				bottom = arr[i].y;
-			if (right < arr[i].x)
-				right = arr[i].x;
-			if (top > arr[i].y)
-				top = arr[i].y;
-		}
+	left = flb.x;
+	top = flb.y;
+	right = flb.x;
+	bottom = flb.y;
 
-		in.x = static_cast<int>(left);
-		in.y = static_cast<int>(top);
-		in.w = static_cast<int>(right - left);
-		in.h = static_cast<int>(bottom - top);
-
-		return true;
+	for (int i = 1; i < 8; i++) {
+		if (left > arr[i].x)
+			left = arr[i].x;
+		if (bottom < arr[i].y)
+			bottom = arr[i].y;
+		if (right < arr[i].x)
+			right = arr[i].x;
+		if (top > arr[i].y)
+			top = arr[i].y;
 	}
 
+	in.x = static_cast<int>(left);
+	in.y = static_cast<int>(top);
+	in.w = static_cast<int>(right - left);
+	in.h = static_cast<int>(bottom - top);
+
+	return true;
+}
+
+namespace cheat::core::features {
 	void watermark() {
 		if (vars::misc::watermark)
 			sdk::misc::text(5, 5, cheat::sdk::misc::color(255, 255, 255), sdk::misc::fonts[CONV_ENUM_TYPE(std::int32_t, sdk::enums::font::font_watermark)], "csgo-internal - " __DATE__);
