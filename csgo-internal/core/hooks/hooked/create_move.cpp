@@ -8,6 +8,7 @@ namespace cheat::core::hooks::create_move {
 			original(ecx, frame, cmd);
 
 		if (ifaces::get_ifaces.engine->is_connected() && ifaces::get_ifaces.engine->is_in_game() && cmd != nullptr) {
+			features::backtrack(cmd);
 			features::grenade_preview();
 			features::flash_alpha();
 			features::bunny_hop(cmd);

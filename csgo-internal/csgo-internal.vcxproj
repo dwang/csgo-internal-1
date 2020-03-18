@@ -88,6 +88,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\entry.cpp" />
+    <ClCompile Include="core\features\core\backtrack.cpp" />
     <ClCompile Include="core\features\core\chams.cpp" />
     <ClCompile Include="core\features\core\misc.cpp" />
     <ClCompile Include="core\features\core\visuals.cpp" />
@@ -120,6 +121,7 @@
     <ClCompile Include="dependencies\minhook\trampoline.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="core\features\core\backtrack.hpp" />
     <ClInclude Include="core\features\core\chams.hpp" />
     <ClInclude Include="core\features\core\misc.hpp" />
     <ClInclude Include="core\features\core\visuals.hpp" />
@@ -130,6 +132,7 @@
     <ClInclude Include="core\mem\mem.hpp" />
     <ClInclude Include="core\menu\menu.hpp" />
     <ClInclude Include="core\menu\vars.hpp" />
+    <ClInclude Include="core\sdk\enums\bone_flags.hpp" />
     <ClInclude Include="core\sdk\enums\button.hpp" />
     <ClInclude Include="core\sdk\enums\analog_code.hpp" />
     <ClInclude Include="core\sdk\enums\client_frame_stage.hpp" />

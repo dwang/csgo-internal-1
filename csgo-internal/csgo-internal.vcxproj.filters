@@ -108,6 +108,9 @@
     <ClCompile Include="core\features\core\chams.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="core\features\core\backtrack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\main\main.hpp">
@@ -360,6 +363,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="core\features\core\chams.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\features\core\backtrack.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\sdk\enums\bone_flags.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

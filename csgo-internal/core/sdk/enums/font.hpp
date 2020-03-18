@@ -6,8 +6,7 @@ namespace cheat::sdk::enums {
 		font_visuals
 	};
 
-	enum font_flags
-	{
+	enum struct font_flags {
 		none,
 		italic = 0x001,
 		underline = 0x002,

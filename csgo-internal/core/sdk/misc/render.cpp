@@ -88,8 +88,8 @@ namespace cheat::sdk::misc {
 		fonts.push_back(CONV_ENUM_TYPE(std::int32_t, enums::font::font_watermark));
 		fonts.push_back(CONV_ENUM_TYPE(std::int32_t, enums::font::font_visuals));
 
-		create_font(fonts[CONV_ENUM_TYPE(std::int32_t, enums::font::font_watermark)], "Tahoma", 25, enums::font_flags::dropshadow, false);
-		create_font(fonts[CONV_ENUM_TYPE(std::int32_t, enums::font::font_visuals)], "Tahoma", 20, enums::font_flags::dropshadow, false);
+		create_font(fonts[CONV_ENUM_TYPE(std::int32_t, enums::font::font_watermark)], "Tahoma", 25, CONV_ENUM_TYPE(std::int32_t, enums::font_flags::dropshadow), false);
+		create_font(fonts[CONV_ENUM_TYPE(std::int32_t, enums::font::font_visuals)], "Tahoma", 20, CONV_ENUM_TYPE(std::int32_t, enums::font_flags::dropshadow), false);
 	}
 
 	void render_setup(IDirect3DDevice9* device, HWND window) {

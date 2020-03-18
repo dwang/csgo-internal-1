@@ -1,6 +1,7 @@
 #pragma once
 
 #include "enums/analog_code.hpp"
+#include "enums/bone_flags.hpp"
 #include "enums/button.hpp"
 #include "enums/client_frame_stage.hpp"
 #include "enums/flags.hpp"

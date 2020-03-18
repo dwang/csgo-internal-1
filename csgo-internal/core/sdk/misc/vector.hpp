@@ -76,5 +76,9 @@ namespace cheat::sdk::misc {
 		auto length() const {
 			return std::sqrtf(x * x + y * y + z * z);
 		}
+
+		auto dot(const vector& point) {
+			return (x * point.x + y * point.y + z * point.z);
+		}
 	};
 }

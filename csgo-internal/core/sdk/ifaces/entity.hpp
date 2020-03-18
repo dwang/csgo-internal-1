@@ -4,6 +4,7 @@
 
 #include "../misc/vector.hpp"
 #include "../misc/netvar_tree.hpp"
+#include "../misc/matrix.hpp"
 
 namespace cheat::sdk::ifaces {
 	struct entity {
@@ -28,6 +29,28 @@ namespace cheat::sdk::ifaces {
 		NETVAR(get_abs_origin(), misc::vector, "DT_BaseEntity", "m_angAbsOrigin");
 		NETVAR(get_vec_view(), misc::vector, "DT_BasePlayer", "m_vecViewOffset[0]");
 
-		VFUNC(collideable(), 3, collideable_t* (__thiscall*)(void*));
+		NETVAR(get_simulation_time(), float, "DT_BaseEntity", "m_flSimulationTime");
+
+		VFUNC(collideable(), 3, collideable_t*(__thiscall*)(void*));
+
+		void* animating() {
+			return reinterpret_cast<void*>(std::uintptr_t(this) + 0x4);
+		}
+
+		bool setup_bones(misc::matrix3x4* out, int max_bones, int mask, float time) {
+			if (!this)
+				return false;
+
+			return misc::vfunc_from_index<bool(__thiscall*)(void*, misc::matrix3x4*, int, int, float)>(animating(), 13)(animating(), out, max_bones, mask, time);
+		}
+
+		misc::vector get_bone_position(int bone) {
+			misc::matrix3x4 bone_matrix[128];
+
+			if (setup_bones(bone_matrix, 128, CONV_ENUM_TYPE(std::int32_t, enums::bone_flags::bone_used_by_anything), 0.0f))
+				return misc::vector(bone_matrix[bone][0][3], bone_matrix[bone][1][3], bone_matrix[bone][2][3]);
+
+			return misc::vector{};
+		}
 	};
 }

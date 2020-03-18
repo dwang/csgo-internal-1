@@ -31,7 +31,7 @@ namespace cheat::core::features {
 		static auto material = ifaces::get_ifaces.material_system->find_material("debug/debugambientcube");
 
 		if (vars::visuals::chams_ignore_z) {
-			material->set_flag(static_cast<std::uint32_t>(sdk::enums::material::material_ignorez), true);
+			material->set_flag(CONV_ENUM_TYPE(std::int32_t, sdk::enums::material::material_ignorez), true);
 
 			if (local_player->get_team() == entity->get_team())
 				material->set_color(1.0f, 1.0f, 1.0f);
@@ -47,7 +47,7 @@ namespace cheat::core::features {
 		else
 			material->set_color(150.0f / 255.0f, 200.0f / 255.0f, 60.0f / 255.0f);
 
-		material->set_flag(static_cast<std::uint32_t>(sdk::enums::material::material_ignorez), false);
+		material->set_flag(CONV_ENUM_TYPE(std::int32_t, sdk::enums::material::material_ignorez), false);
 		ifaces::get_ifaces.model_render->override_material(material);
 	}
 }
