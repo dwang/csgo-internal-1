@@ -22,9 +22,6 @@ namespace cheat::core::features {
 		if (entity == local_player)
 			return;
 
-		if (!(local_player->get_team() != entity->get_team()))
-			return;
-
 		if (entity->is_dormant())
 			return;
 
